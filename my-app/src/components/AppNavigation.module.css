@@ -1,0 +1,20 @@
+.appNav{
+    grid-area: app_nav;
+    padding: 10px;
+}
+.item{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+
+}
+.link{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+.navigationIcon{
+    width: 20px;
+    margin:0px 5px;
+    display: block;
+}
