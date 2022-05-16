@@ -1,0 +1,26 @@
+.dialogue a{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    margin: 10px 0px;
+    text-decoration: none;
+    color: black;
+}
+.active{
+    background-color: paleturquoise;
+}
+.inactive{
+    background-color: transparent;
+}
+.userAvatar{
+    flex: 0 0 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user_name{
+    flex-shrink: 1;
+    flex-grow: 1;
+    margin-left: 15px;
+}

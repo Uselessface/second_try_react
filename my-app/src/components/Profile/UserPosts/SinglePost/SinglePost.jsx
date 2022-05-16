@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './SinglePostStyle.module.css';
-import ProfileStyle from "../../Profile.module.css";
+import ProfileStyle from "../../ProfileInfo/ProfileInfo.module.css";
 
 const SinglePost = (props) => {
     return (
@@ -8,7 +8,7 @@ const SinglePost = (props) => {
             <div className={styles.container}>
                 <div className={styles.userAvatar}>
                     <img src="https://99px.ru/sstorage/53/2020/10/mid_316610_252677.jpg" alt=""
-                         className={ProfileStyle.userAvatar__image}/>
+                         className={ProfileStyle.avatar_image}/>
                 </div>
                 <div className={styles.body}>
                     <p className={styles.text}>{props.message}</p>
