@@ -1,13 +1,14 @@
 import React from "react";
-import UserPostStyle from './NewPost.module.css';
+import styles from './NewPost.module.css';
 
-const NewPost = (props) =>{
-    return(
+
+const NewPost = (props) => {
+    return (
         <div>
-            <h3 className={UserPostStyle.header}>New Post</h3>
-            <div className={UserPostStyle.new_post_container}>
-                <textarea className={UserPostStyle.new_post} name="new_post"/>
-                <button className={UserPostStyle.add_post}>Share your thoughts</button>
+            <h3 className={'section_header'}>New Post</h3>
+            <div className={styles.new_post_container}>
+                <textarea className={styles.new_post} name="new_post"/>
+                <button className={styles.add_post}>Share your thoughts</button>
             </div>
             <hr/>
         </div>

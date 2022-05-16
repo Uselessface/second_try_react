@@ -1,15 +1,16 @@
 import React from "react";
-import NavList from "./AppNavigation.module.css";
+import styles from "./AppNavigation.module.css";
+import {NavLink} from "react-router-dom";
 
 const AppNavigation = () =>{
     return(
-        <nav className={NavList.appNav}>
-            <ul className={NavList.list}>
-                <li className={NavList.item}><span><img src="https://icon-library.com/images/android-style-icon/android-style-icon-20.jpg" alt="list_icon" className={NavList.navigationIcon}/></span><a className={NavList.link} href="#s"> Profile</a></li>
-                <li className={NavList.item}><span><img src="https://icon-library.com/images/android-style-icon/android-style-icon-20.jpg" alt="list_icon" className={NavList.navigationIcon}/></span><a className={NavList.link} href="#s">Messages </a></li>
-                <li className={NavList.item}><span><img src="https://icon-library.com/images/android-style-icon/android-style-icon-20.jpg" alt="list_icon" className={NavList.navigationIcon}/></span><a className={NavList.link} href="#s">News</a></li>
-                <li className={NavList.item}><span><img src="https://icon-library.com/images/android-style-icon/android-style-icon-20.jpg" alt="list_icon" className={NavList.navigationIcon}/></span><a className={NavList.link} href="#s">Music</a></li>
-                <li className={NavList.item}><span><img src="https://icon-library.com/images/android-style-icon/android-style-icon-20.jpg" alt="list_icon" className={NavList.navigationIcon}/></span><a className={NavList.link} href="#s">Settings</a></li>
+        <nav className={styles.appNav}>
+            <ul className={styles.list}>
+                <li className={styles.item}><span className={styles.navigationIcon}/><NavLink className={({isActive}) => (isActive ? styles.active : styles.link) } to="/profile"> Profile</NavLink></li>
+                <li className={styles.item}><span className={styles.navigationIcon}/><NavLink className={({isActive}) => (isActive ? styles.active : styles.link) } to="/dialogs">Messages </NavLink></li>
+                <li className={styles.item}><span className={styles.navigationIcon}/><NavLink className={({isActive}) => (isActive ? styles.active : styles.link) } to="/news">News</NavLink></li>
+                <li className={styles.item}><span className={styles.navigationIcon}/><NavLink className={({isActive}) => (isActive ? styles.active : styles.link) } to="/music">Music</NavLink></li>
+                <li className={styles.item}><span className={styles.navigationIcon}/><NavLink className={({isActive}) => (isActive ? styles.active : styles.link) } to="/settings">Settings</NavLink></li>
             </ul>
         </nav>
     );

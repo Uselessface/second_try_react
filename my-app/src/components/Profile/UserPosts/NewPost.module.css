@@ -4,11 +4,7 @@
     margin: 10px 0px 0px;
     padding-bottom: 20px;
 }
-    .header{
-        font-size: 25px;
-        font-weight: 700;
-        margin: 10px 20px 10px;
-    }
+
     .new_post_container{
         display: flex;
         align-items: center;
