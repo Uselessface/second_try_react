@@ -2,6 +2,13 @@ import React from "react";
 import styles from "./Dialogue_body.module.css";
 import ProfileStyle from "../../Profile/ProfileInfo/ProfileInfo.module.css";
 
+
+let messageData = [
+    {id : 1, message : "Реально хороший и понятный курс. надеюсь это сказать и в конце."}
+    ,{ id: 2, message: "Спасибо!" }
+]
+let messageBody = messageData.map(content => <IncomingMessage message_content={content.message} /> );
+
 const IncomingMessage = (props) => {
     return(
         <div className={`${styles.message} ${styles.incoming_message}`}>
@@ -16,7 +23,7 @@ const IncomingMessage = (props) => {
     );
 }
 
-const ReplyingMessage = (props) => {
+/*const ReplyingMessage = (props) => {
     return(
         <div className={`${styles.message} ${styles.reply_message}`}>
             <div className={styles.userAvatar}>
@@ -28,15 +35,12 @@ const ReplyingMessage = (props) => {
             </div>
         </div>
     );
-}
-
-
+}*/
 
 const DialogBody = (props) =>{
-    return(
+    return (
         <div className={styles.dialogue_body}>
-            <IncomingMessage message_content="Реально хороший и понятный курс. надеюсь это сказать и в конце."/>
-            <ReplyingMessage message_content ="Спасибо!" />
+            {messageBody}
         </div>
     );
 }

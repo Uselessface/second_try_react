@@ -17,7 +17,7 @@ const SinglePost = (props) => {
             <div className={styles.social_block}>
                 <div className={styles.social_item}>
                     <div className={`${styles.social_icon} ${styles.like_icon}`}></div>
-                    <div className={styles.social_counter}>{props.like_count}</div>
+                    <div className={styles.social_counter}>{props.likes}</div>
                 </div>
             </div>
         </div>

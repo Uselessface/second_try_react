@@ -11,7 +11,7 @@ const DialogItem = (props) => {
                     <img src="https://99px.ru/sstorage/53/2020/10/mid_316610_252677.jpg" alt=""
                          className={ProfileStyle.avatar_image}/>
                 </div>
-                <p className={styles.user_name}>{props.userName}</p>
+                <p className={styles.user_name}>{props.name}</p>
             </NavLink>
         </div>
     );
