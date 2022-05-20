@@ -1,52 +1,59 @@
-.container{
+.container {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 15px;
     padding: 0px 10px;
 }
-    .userAvatar{
-        flex: 0 0 80px;
-        height: 80px;
-        border: 2px solid grey;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    .body{
-        padding: 0px 15px;
-        flex: 0 1 auto;
-        flex-wrap: wrap;
-        font-size: 18px;
-        font-weight: 600;
-    }
-    .social_block{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0px 15px;
-    }
-        .social_item{
-            display: flex;
-            align-items: center;
-            background-color:ghostwhite;
-            flex: 0 0 75px;
-            height: 35px;
-            padding: 0px 5px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-            .social_icon{
-                width: 30px;
-                height: 100%;
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: top center;
-            }
-                .like_icon{
-                    background-image: url("https://images.vexels.com/media/users/3/157338/isolated/lists/4952c5bde17896bea3e8c16524cd5485-facebook-like-icon.png");
-                }
-            .social_counter{
-                font-size: 15px;
-                font-weight: 500;
-                margin-left: 5px;
-            }
+
+.userAvatar {
+    flex: 0 0 80px;
+    height: 80px;
+    border: 2px solid grey;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.body {
+    padding: 0px 15px;
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.social_block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.social_item {
+    display: flex;
+    align-items: center;
+    background-color: ghostwhite;
+    flex: 0 0 75px;
+    height: 35px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.social_icon {
+    width: 30px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.like_icon {
+    background-image: url("https://images.vexels.com/media/users/3/157338/isolated/lists/4952c5bde17896bea3e8c16524cd5485-facebook-like-icon.png");
+}
+
+.social_counter {
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 5px;
+}

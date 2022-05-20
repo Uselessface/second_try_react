@@ -1,4 +1,4 @@
-.dialogue a{
+.dialogue a {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -7,19 +7,23 @@
     text-decoration: none;
     color: black;
 }
-.active{
+
+.active {
     background-color: paleturquoise;
 }
-.inactive{
+
+.inactive {
     background-color: transparent;
 }
-.userAvatar{
+
+.userAvatar {
     flex: 0 0 70px;
     height: 70px;
     border-radius: 50%;
     overflow: hidden;
 }
-.user_name{
+
+.user_name {
     flex-shrink: 1;
     flex-grow: 1;
     margin-left: 15px;

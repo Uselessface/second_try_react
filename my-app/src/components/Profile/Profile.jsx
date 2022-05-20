@@ -2,11 +2,11 @@ import React from "react";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import UserPostSection from "./UserPostSection/UserPostSection";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
             <ProfileInfo/>
-            <UserPostSection/>
+            <UserPostSection postData={props.postData}/>
         </div>
     );
 }

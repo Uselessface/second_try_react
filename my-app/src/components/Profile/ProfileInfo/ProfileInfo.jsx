@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./ProfileInfo.module.css";
 
-const ProfileInfo = (props) =>{
-    return(
+const ProfileInfo = (props) => {
+    return (
         <div className={styles.userBlock}>
             <div className={styles.userAvatarContainer}>
                 <div className={styles.userAvatar}>
@@ -15,7 +15,8 @@ const ProfileInfo = (props) =>{
                     <li className={styles.userName}>Chad Chadson</li>
                     <li className={styles.item}>Birthday : <span className="property">20 April</span></li>
                     <li className={styles.item}>City : <span className="property">Keklifornia</span></li>
-                    <li className={styles.item}>Education : <span className="property">Sigma rule channels on Youtube</span>
+                    <li className={styles.item}>Education : <span
+                        className="property">Sigma rule channels on Youtube</span>
                     </li>
                     <li className={styles.item}>Web Site : <span className="property">none</span></li>
                 </ul>

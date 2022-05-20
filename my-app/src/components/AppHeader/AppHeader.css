@@ -1,8 +1,9 @@
-.app_header{
+.app_header {
     grid-area: app_header;
     background-color: cornflowerblue;
 }
-.logo{
+
+.logo {
     width: 60px;
 
 }
