@@ -19,11 +19,13 @@ function App(props) {
                 <main className={'app-main-content'}>
                     <Routes>
                         <Route path='/profile' element={<Profile
-                            postData={props.state.profilePage.postData}/>}/>
+                            postData={props.state.profilePage.postData} addPost={props.addPost}/>}/>
                         <Route path='/dialogs/*'
                                element={<Dialogs
                                    messageData={props.state.dialogPage.messageData}
-                                   dialogsData={props.state.dialogPage.dialogsData}/>}/>
+                                   dialogsData={props.state.dialogPage.dialogsData}
+                                   sendMessage={props.sendMessage}
+                               />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>

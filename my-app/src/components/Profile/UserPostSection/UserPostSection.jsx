@@ -8,7 +8,7 @@ const UserPostSection = (props) => {
     let posts = props.postData.map(post => <SinglePost likes={post.likes} message={post.message} id={post.id}/>);
     return (
         <div className={styles.user_post_wrapper}>
-            <NewPost/>
+            <NewPost addPost={props.addPost} />
             {posts}
         </div>
     );
