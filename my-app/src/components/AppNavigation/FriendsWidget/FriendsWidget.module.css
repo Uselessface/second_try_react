@@ -1,0 +1,29 @@
+.friends_widget{
+    margin-top: 25px;
+}
+    h4{
+        font-size: 40px;
+    }
+    .friends_container{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 25px;
+        flex-wrap: wrap;
+    }
+        .friend_item{
+            flex: 0 1 20%;
+            text-align: center;
+            cursor: pointer;
+        }
+            .friend_item img{
+                margin: 0 auto;
+                height: 45px;
+                width:45px;
+                display: block;
+            }
+            .name{
+                font-size: 14px;
+            }

@@ -15,7 +15,7 @@ function App(props) {
         <Router>
             <div className={'wrapper'}>
                 <AppHeader/>
-                <AppNavigation/>
+                <AppNavigation friend={props.state.friends} />
                 <main className={'app-main-content'}>
                     <Routes>
                         <Route path='/profile' element={<Profile
