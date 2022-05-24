@@ -24,12 +24,12 @@ function App(props) {
                             newPostText={props.state.profilePage.newPostText}
                             updatePostValue={props.updatePostValue}
                             />}/>
-                        <Route path='/dialogs/*'
-                               element={<Dialogs
+                        <Route path='/dialogs/*' element={<Dialogs
                                    messageData={props.state.dialogPage.messageData}
                                    dialogsData={props.state.dialogPage.dialogsData}
                                    sendMessage={props.sendMessage}
                                    friendsList={props.state.friends}
+                                   updateMessageValue={props.updateMessageValue}
                                />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>

@@ -5,15 +5,16 @@ import styles from './NewPost.module.css';
 const NewPost = (props) => {
 
     let newPostArea = React.createRef();
+
     let addPost = () =>{
         props.addPost();
-
-
     }
+
     let updateValue = () => {
         let postContent = newPostArea.current.value;
         props.updatePostValue(postContent);
     }
+
     return (
         <div>
             <h3 className={'section_header'}>New Post</h3>

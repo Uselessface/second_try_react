@@ -64,7 +64,8 @@ let state = {
             {id: 5, name: 'Johnny Joestar'},
             {id: 6, name: 'Johnny Joestar'},
             {id: 7, name: 'Johnny Joestar'}
-        ]
+        ],
+        newMessageValue : ""
     },
     friends: [
         {
@@ -126,21 +127,26 @@ export let addPost = () => {
     state.profilePage.newPostText = "";
 
 }
-
 export let updatePostValue = (newPostValue) => {
     state.profilePage.newPostText = newPostValue;
     rerenderApp(state);
-
 }
 
-export let sendMessage = (messageBody) => {
+export let sendMessage = () => {
     let newMessage = {
         id : 3,
-        message: messageBody
+        message: state.dialogPage.newMessageValue
     };
 
     state.dialogPage.messageData.push(newMessage);
     rerenderApp(state);
+    state.dialogPage.newMessageValue = "";
 }
+
+export let updateMessageValue = (newMessageValue) =>{
+    state.dialogPage.newMessageValue = newMessageValue;
+    rerenderApp(state);
+}
+
 
 export {state};

@@ -3,7 +3,6 @@ import styles from "./Dialogs.module.css";
 import DialogueList from "./DialogueList/DialogueList";
 import DialogBody from "./DialogueBody/DialogBody";
 import NewMessage from "./NewMessage/NewMessage";
-import {sendMessage} from "../../redux/state";
 
 const Dialogs = (props) => {
     return (
@@ -16,7 +15,10 @@ const Dialogs = (props) => {
                 <DialogBody messageData={props.messageData}/>
             </div>
             <div className={styles.new_message}>
-                <NewMessage sendMessage={sendMessage} />
+                <NewMessage
+                    sendMessage={props.sendMessage}
+                    updateMessageValue={props.updateMessageValue}
+                />
             </div>
         </div>
     )
