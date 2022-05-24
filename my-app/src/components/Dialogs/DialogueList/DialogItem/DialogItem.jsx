@@ -9,7 +9,7 @@ const DialogItem = (props) => {
             <NavLink className={({isActive}) => (isActive ? styles.active : styles.inactive)}
                      to={"/dialogs/" + props.id}>
                 <div className={styles.userAvatar}>
-                    <img src="https://99px.ru/sstorage/53/2020/10/mid_316610_252677.jpg" alt=""
+                    <img src={props.avatar} alt=""
                          className={ProfileStyle.avatar_image}/>
                 </div>
                 <p className={styles.user_name}>{props.name}</p>

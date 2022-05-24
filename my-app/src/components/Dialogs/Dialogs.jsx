@@ -12,7 +12,7 @@ const Dialogs = (props) => {
                 Chats
             </h3>
             <div className={styles.dialogues_container}>
-                <DialogueList dialogsData={props.dialogsData}/>
+                <DialogueList friendsList={props.friendsList}/>
                 <DialogBody messageData={props.messageData}/>
             </div>
             <div className={styles.new_message}>

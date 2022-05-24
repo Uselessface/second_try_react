@@ -4,7 +4,7 @@ import DialogItem from "./DialogItem/DialogItem";
 
 
 const DialogueList = (props) => {
-    let userDialogItems = props.dialogsData.map(item => <DialogItem name={item.name} id={item.id}/>);
+    let userDialogItems = props.friendsList.map(item => <DialogItem name={item.name} id={item.id} avatar={item.avatar}/>);
     return (
         <div className={styles.dialogue_list}>
             {userDialogItems}

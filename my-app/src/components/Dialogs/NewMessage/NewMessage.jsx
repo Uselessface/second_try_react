@@ -7,7 +7,8 @@ const NewMessage = (props) => {
     let newMessageArea = React.createRef();
     let newMessage = () => {
         let messageValue = newMessageArea.current.value;
-        props.sendMessage(messageValue)
+        props.sendMessage(messageValue);
+        newMessageArea.current.value = "";
     }
     return (
         <div>

@@ -8,13 +8,14 @@
         display: flex;
         width: 100%;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         gap: 10px;
         margin-top: 25px;
         flex-wrap: wrap;
     }
         .friend_item{
-            flex: 0 1 20%;
+            flex: 0 1 30%;
+            min-height: 90px;
             text-align: center;
             cursor: pointer;
         }
