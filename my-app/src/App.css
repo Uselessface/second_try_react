@@ -55,7 +55,7 @@ table {
     display: grid;
     grid-template-areas: "app_header app_header " "app_nav app_main_content";
     grid-template-rows: 60px 1fr;
-    grid-template-columns: 3fr 10fr;
+    grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
 }
 
@@ -75,4 +75,10 @@ table {
     font-size: 25px;
     font-weight: 700;
     margin: 10px 20px 10px;
+}
+
+@media screen and  (max-width: 1220px){
+    .wrapper{
+        grid-template-columns: 3fr 9fr;
+    }
 }

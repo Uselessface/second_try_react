@@ -1,4 +1,6 @@
-import {rerenderApp} from "../render";
+let rerenderApp = () =>{
+    console.log("change");
+}
 
 let state = {
     profilePage: {
@@ -116,7 +118,7 @@ let state = {
     ]
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 15,
         message: state.profilePage.newPostText,
@@ -127,12 +129,12 @@ export let addPost = () => {
     state.profilePage.newPostText = "";
 
 }
-export let updatePostValue = (newPostValue) => {
+export const updatePostValue = (newPostValue) => {
     state.profilePage.newPostText = newPostValue;
     rerenderApp(state);
 }
 
-export let sendMessage = () => {
+export const sendMessage = () => {
     let newMessage = {
         id : 3,
         message: state.dialogPage.newMessageValue
@@ -140,13 +142,18 @@ export let sendMessage = () => {
 
     state.dialogPage.messageData.push(newMessage);
     rerenderApp(state);
-    state.dialogPage.newMessageValue = "";
-}
+    state.dialogPage.newMessageValue = " ";
+    rerenderApp(state);
 
-export let updateMessageValue = (newMessageValue) =>{
+}
+export const updateMessageValue = (newMessageValue) =>{
     state.dialogPage.newMessageValue = newMessageValue;
     rerenderApp(state);
+
 }
 
+export const subscribe = (observer) =>{
+    rerenderApp = observer;
+}
 
 export {state};
