@@ -18,19 +18,25 @@ function App(props) {
                 <AppNavigation friend={props.state.friends} />
                 <main className={'app-main-content'}>
                     <Routes>
+                        <Route path='/' element={<Profile
+                            postData={props.state.profilePage.postData}
+                            addPost={props.addPost}
+                            newPostText={props.state.profilePage.newPostText}
+                            updatePostValue={props.updatePostValue}
+                        />}/>
                         <Route path='/profile' element={<Profile
                             postData={props.state.profilePage.postData}
                             addPost={props.addPost}
                             newPostText={props.state.profilePage.newPostText}
                             updatePostValue={props.updatePostValue}
-                            />}/>
+                        />}/>
                         <Route path='/dialogs/*' element={<Dialogs
-                                   messageData={props.state.dialogPage.messageData}
-                                   dialogsData={props.state.dialogPage.dialogsData}
-                                   sendMessage={props.sendMessage}
-                                   friendsList={props.state.friends}
-                                   updateMessageValue={props.updateMessageValue}
-                               />}/>
+                            messageData={props.state.dialogPage.messageData}
+                            dialogsData={props.state.dialogPage.dialogsData}
+                            sendMessage={props.sendMessage}
+                            friendsList={props.state.friends}
+                            updateMessageValue={props.updateMessageValue}
+                        />}/>
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>

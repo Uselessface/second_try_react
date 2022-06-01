@@ -1,8 +1,6 @@
 import React from "react";
 import styles from './NewMessage.module.css';
 
-
-
 const NewMessage = (props) => {
 
     let newMessageArea = React.createRef();

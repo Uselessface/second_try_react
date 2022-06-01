@@ -1,5 +1,6 @@
 .dialogue_list {
     padding: .5rem;
+    overflow-y: scroll;
 }
 
 .dialogues {

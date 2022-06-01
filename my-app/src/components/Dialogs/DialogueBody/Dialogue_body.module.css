@@ -1,5 +1,6 @@
 .dialogue_body {
     border-left: 1px solid lightsteelblue;
+    overflow-y: scroll;
 }
 
 .message {

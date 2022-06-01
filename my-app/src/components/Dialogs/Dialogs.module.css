@@ -1,7 +1,7 @@
 .dialogues_container {
     display: grid;
     grid-template-columns: 3fr 5fr;
-    height: 75vh;
-    overflow-y: scroll;
+    height: 70vh;
+    overflow-y: hidden;
     overflow-x: hidden;
 }

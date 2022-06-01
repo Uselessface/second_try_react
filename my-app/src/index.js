@@ -3,25 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {addPost, state, subscribe, updateMessageValue} from "./redux/state";
-import {sendMessage} from "./redux/state";
-import {updatePostValue} from "./redux/state";
+import store from "./redux/state";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let rerenderApp = () =>{
+let rerenderApp = (state) =>{
     root.render(
         <React.StrictMode>
             <App
                 state={state}
-                addPost={addPost}
-                sendMessage={sendMessage}
-                updatePostValue={updatePostValue}
-                updateMessageValue={updateMessageValue}
+                addPost={store.addPost.bind(store)}
+                sendMessage={store.sendMessage.bind(store)}
+                updatePostValue={store.updatePostValue.bind(store)}
+                updateMessageValue={store.updateMessageValue.bind(store)}
             />
         </React.StrictMode>
     );
 }
-rerenderApp(state);
-subscribe(rerenderApp);
+rerenderApp(store.getState());
+store.subscribe(rerenderApp);
 
 reportWebVitals();
