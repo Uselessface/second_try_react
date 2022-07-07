@@ -1,53 +1,54 @@
-import React from "react";
-import './App.css';
-import AppHeader from "./components/AppHeader/AppHeader";
-import AppNavigation from "./components/AppNavigation/AppNavigation";
-import AppFooter from "./components/AppFooter/AppFooter";
-import Dialogs from "./components/Dialogs/Dialogs";
-import Profile from "./components/Profile/Profile";
-import Music from "./components/Music/Music";
-import News from "./components/News/News";
-import Settings from "./components/Settings/Settings";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import "./styles/App.css"
+import React, {useMemo, useState} from "react";
+import PostList from "./components/PostList";
+import PostForm from "./components/PostForm";
+import PostFilter from "./components/PostFilter";
 
-function App(props) {
+function App() {
+    const [posts, setPosts] = useState([
+        {id: 1, title: "Javascript", body: "description"},
+        {id: 2, title: "Pyton", body: "inscription"},
+        {id: 3, title: "Java", body: "transcription"}
+    ])
+    const [filter, setFilter] = useState({sort: '', query: ''})
+    // возвращаем отсортированный массив
+    const sortedPost = useMemo(() => {
+            console.log("ФУНКЦИЯ ОТРАБОТАЛА")
+            if (filter.sort) {
+                return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
+            } else {
+                return posts;
+            }
+        }
+        , [filter.sort, posts]);
+
+    const sortedAndSearchedPosts = useMemo(() => {
+        return sortedPost.filter(post => post.title.toLowerCase().includes(filter.query))
+    }, [
+        filter.query, sortedPost
+    ])
+
+    const createPost = (newPost) => {
+        setPosts([...posts, newPost])
+    }
+    //получаем пост из дочернего элемента
+    const removePost = (post) => {
+        setPosts(posts.filter(p => p.id !== post.id))
+    }
+
+
     return (
-        <Router>
-            <div className={'wrapper'}>
-                <AppHeader/>
-                <AppNavigation friend={props.state.friends} />
-                <main className={'app-main-content'}>
-                    <Routes>
-                        <Route path='/' element={<Profile
-                            postData={props.state.profilePage.postData}
-                            addPost={props.addPost}
-                            newPostText={props.state.profilePage.newPostText}
-                            updatePostValue={props.updatePostValue}
-                        />}/>
-                        <Route path='/profile' element={<Profile
-                            postData={props.state.profilePage.postData}
-                            addPost={props.addPost}
-                            newPostText={props.state.profilePage.newPostText}
-                            updatePostValue={props.updatePostValue}
-                        />}/>
-                        <Route path='/dialogs/*' element={<Dialogs
-                            messageData={props.state.dialogPage.messageData}
-                            dialogsData={props.state.dialogPage.dialogsData}
-                            sendMessage={props.sendMessage}
-                            friendsList={props.state.friends}
-                            updateMessageValue={props.updateMessageValue}
-                        />}/>
-                        <Route path='/news' element={<News/>}/>
-                        <Route path='/music' element={<Music/>}/>
-                        <Route path='/settings' element={<Settings/>}/>
-                    </Routes>
-                </main>
-                <AppFooter/>
-            </div>
-        </Router>
+        <div className="App">
+            <PostForm create={createPost}/>
+            <hr style={{margin: "15px 0px"}}/>
+            <PostFilter filter={filter} setFilter={setFilter}/>
+            {/*Условная отрисовка*/}
+            {sortedAndSearchedPosts.length !== 0
+                ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Посты про JS"} key={posts.id}/>
+                : <h1 style={{textAlign: "center", marginTop: "15px"}}>Постов нет</h1>
+            }
+        </div>
     );
 }
 
-
 export default App;
-

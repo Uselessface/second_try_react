@@ -120,36 +120,37 @@ let store = {
     getState (){
         return this._state;
     },
-    addPost () {
-        let newPost = {
-            id: 15,
-            message: this._state.profilePage.newPostText,
-            likes: 0
-        };
-        this._state.profilePage.postData.push(newPost);
-        this._callSubscriber(this._state);
-        this._state.profilePage.newPostText = "";
-    }, // метод объекта store
-    updatePostValue (newPostValue){
-        this._state.profilePage.newPostText = newPostValue;
-        this._callSubscriber(this._state);
-    }, // метод объекта store
-    sendMessage (){
-        let newMessage = {
-            id : 3,
-            message: this._state.dialogPage.newMessageValue
-        };
-        this._state.dialogPage.messageData.push(newMessage);
-        this._callSubscriber(this._state);
-        this._state.dialogPage.newMessageValue = " ";
-    },
-    updateMessageValue (newMessageValue){
-        this._state.dialogPage.newMessageValue = newMessageValue;
-        this._callSubscriber(this._state);
-
-    },
     subscribe (observer){
         this._callSubscriber = observer;
+    },
+    dispatch(action){
+        debugger;
+       if (action.type === "ADD-POST") {
+           let newPost = {
+               id: 15,
+               message: this._state.profilePage.newPostText,
+               likes: 0
+           };
+           this._state.profilePage.postData.push(newPost);
+           this._callSubscriber(this._state);
+           this._state.profilePage.newPostText = "";
+       } else if (action.type === "UPDATE-POST-VALUE"){
+           this._state.profilePage.newPostText = action.newPostValue;
+           this._callSubscriber(this._state);
+       } else if (action.type === "SEND-MESSAGE"){
+           let newMessage = {
+               id : 9,
+               message: this._state.dialogPage.newMessageValue
+           };
+           this._state.dialogPage.messageData.push(newMessage);
+           this._callSubscriber(this._state);
+           this._state.dialogPage.newMessageValue = "";
+       } else if (action.type === "UPDATE-MESSAGE-VALUE"){
+           this._state.dialogPage.newMessageValue = action.newMessageValue;
+           this._callSubscriber(this._state);
+
+       }
+
     }
 }
 
