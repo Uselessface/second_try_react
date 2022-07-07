@@ -3,6 +3,9 @@ import React, {useMemo, useState} from "react";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import PostFilter from "./components/PostFilter";
+import Modal from "./components/UI/Modal/Modal";
+import MyButton from "./components/UI/button/MyButton";
+
 
 function App() {
     const [posts, setPosts] = useState([
@@ -10,10 +13,14 @@ function App() {
         {id: 2, title: "Pyton", body: "inscription"},
         {id: 3, title: "Java", body: "transcription"}
     ])
+    // состояние для фильтрации и поиска постов(двухстороннее связывание)
     const [filter, setFilter] = useState({sort: '', query: ''})
+
+    // состояние для модального окна(изменяем видимость)
+    const [modal, setModal] = useState(false)
+
     // возвращаем отсортированный массив
     const sortedPost = useMemo(() => {
-            console.log("ФУНКЦИЯ ОТРАБОТАЛА")
             if (filter.sort) {
                 return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
             } else {
@@ -30,6 +37,7 @@ function App() {
 
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
+        setModal(() => false)
     }
     //получаем пост из дочернего элемента
     const removePost = (post) => {
@@ -39,14 +47,16 @@ function App() {
 
     return (
         <div className="App">
-            <PostForm create={createPost}/>
+            <MyButton onClick={setModal}>
+                Создать пост
+            </MyButton>
+            <Modal visible={modal} setVisible={setModal}>
+                <PostForm create={createPost} />
+            </Modal>
             <hr style={{margin: "15px 0px"}}/>
             <PostFilter filter={filter} setFilter={setFilter}/>
-            {/*Условная отрисовка*/}
-            {sortedAndSearchedPosts.length !== 0
-                ? <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Посты про JS"} key={posts.id}/>
-                : <h1 style={{textAlign: "center", marginTop: "15px"}}>Постов нет</h1>
-            }
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Посты про ujdyj"} key={posts.id}/>
+
         </div>
     );
 }
