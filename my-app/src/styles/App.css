@@ -13,11 +13,32 @@
 .App {
     width: 800px;
 }
+.App h1{
+    text-align: center;
+}
 .post{
     display: flex;
     justify-content: space-around;
-    padding: 10px;
-    border: 1px solid grey;
+    padding: 10px 15px;
+    border: 3px solid #1a788d;
     margin-top: 15px;
     align-items: center;
+}
+.post__content > div{
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.post-enter {
+    transform: translateX(-150px);
+}
+.post-enter-active {
+    transform: translateY(0px);
+    transition: all 1000ms ease-in;
+}
+.post-exit {
+    opacity: 1;
+}
+.post-exit-active {
+    transform: translateX(-350px);
+    transition: all 1000ms ease-in;
 }

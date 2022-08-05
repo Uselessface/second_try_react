@@ -1,40 +1,25 @@
 import "./styles/App.css"
-import React, {useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import PostList from "./components/PostList";
 import PostForm from "./components/PostForm";
 import PostFilter from "./components/PostFilter";
 import Modal from "./components/UI/Modal/Modal";
 import MyButton from "./components/UI/button/MyButton";
+import {usePosts} from "./hooks/usePost";
+import PostService from "./API/PostService";
+import Preloader from "./components/UI/Preloader/Preloader";
+import {useFetching} from "./hooks/useFetching";
 
 
 function App() {
-    const [posts, setPosts] = useState([
-        {id: 1, title: "Javascript", body: "description"},
-        {id: 2, title: "Pyton", body: "inscription"},
-        {id: 3, title: "Java", body: "transcription"}
-    ])
+    const [posts, setPosts] = useState([])
     // состояние для фильтрации и поиска постов(двухстороннее связывание)
     const [filter, setFilter] = useState({sort: '', query: ''})
-
     // состояние для модального окна(изменяем видимость)
     const [modal, setModal] = useState(false)
-
-    // возвращаем отсортированный массив
-    const sortedPost = useMemo(() => {
-            if (filter.sort) {
-                return [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]));
-            } else {
-                return posts;
-            }
-        }
-        , [filter.sort, posts]);
-
-    const sortedAndSearchedPosts = useMemo(() => {
-        return sortedPost.filter(post => post.title.toLowerCase().includes(filter.query))
-    }, [
-        filter.query, sortedPost
-    ])
-
+    // кастомный хук для сортировки и фильтрации постов
+    const sortedAndSearchedPosts = usePosts(posts, filter.sort, filter.query)
+    // создание нового поста и добавление его в массив
     const createPost = (newPost) => {
         setPosts([...posts, newPost])
         setModal(() => false)
@@ -43,10 +28,19 @@ function App() {
     const removePost = (post) => {
         setPosts(posts.filter(p => p.id !== post.id))
     }
+    const [fetchPosts, isPostLoading, error] = useFetching( async () =>{
+        const posts= await PostService.getAll();
+        setPosts(posts)
+    })
+    useEffect(()=> {
+        fetchPosts()
+    }, [ ])
+
 
 
     return (
         <div className="App">
+            <MyButton onClick={fetchPosts} >GEt Posts</MyButton>
             <MyButton onClick={setModal}>
                 Создать пост
             </MyButton>
@@ -55,8 +49,10 @@ function App() {
             </Modal>
             <hr style={{margin: "15px 0px"}}/>
             <PostFilter filter={filter} setFilter={setFilter}/>
-            <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Посты про ujdyj"} key={posts.id}/>
-
+            {isPostLoading
+                ?<div style={{display: "flex" , justifyContent:"center"}}><Preloader/></div>
+                : <PostList remove={removePost} posts={sortedAndSearchedPosts} title={"Все Посты"} key={posts.id}/>
+            }
         </div>
     );
 }

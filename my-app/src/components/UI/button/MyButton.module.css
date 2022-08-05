@@ -4,5 +4,8 @@
     margin: 5px 10px;
     cursor: pointer;
     background-color: white;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    border-color: #1a788d;
 }
 
