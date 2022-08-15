@@ -42,3 +42,17 @@
     transform: translateX(-350px);
     transition: all 1000ms ease-in;
 }
+
+.pagination{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+.page_number{
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid teal;
+}
+.current_page{
+    border: 3px solid darkorchid;
+}
